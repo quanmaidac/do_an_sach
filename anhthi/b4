@@ -1,0 +1,18 @@
+import cv2
+import numpy as np
+
+I = cv2.imread('CMTND01.jpg')
+cv2.imshow('Anh goc', I)
+print('Gia tri pixel anh goc =', I[40][15][1])
+I_gray = cv2.cvtColor(I,cv2.COLOR_BGR2GRAY)
+ret, I_90 = cv2.threshold(I_gray, 90, 255, cv2.THRESH_BINARY)
+cv2.imshow('Nguong 90',I_90)
+ret, I_OTSU = cv2.threshold(I_gray,125,255,cv2.THRESH_OTSU)
+cv2.imshow('OTSU',I_OTSU)
+print('Gia tri pixel nguong 90 =', I_90[40][15])
+print('Gia tri pixel OTSU =', I_OTSU[40][15])
+Irs = cv2.resize(I,(300,500))
+cv2.imwrite('CMND01_300_500.png',Irs)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()

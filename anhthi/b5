@@ -1,0 +1,19 @@
+import cv2
+
+p = 'clother1.jpg'
+img = cv2.imread(p)
+cv2.imshow('anh goc',img)
+
+Ihsv=cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+cv2.imshow('Kenh H', Ihsv[:,:,0])
+cv2.imshow('Kenh S', Ihsv[:,:,1])
+cv2.imshow('Kenh V', Ihsv[:,:,2])
+cv2.imshow('HSV', Ihsv)
+
+#print('HSV: ', Ihsv)
+print('HSV: H \n', Ihsv[:,:,0])
+print('HSV: S \n', Ihsv[:,:,1])
+print('HSV: V \n', Ihsv[:,:,2])
+
+cv2.waitKey()
+cv2.destroyAllWindows()
